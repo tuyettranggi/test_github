@@ -1,2 +1,3 @@
-﻿Đây là file thứ hai của master
-nội dung dòng 1
+Đây là file thứ hai của master
+nội dung dòng 1 => a1
+nội dung dòng 2 => a1

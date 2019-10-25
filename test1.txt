@@ -1,4 +1,5 @@
 Đây là file thứ nhất của master
 nội dung dòng 1
 thêm dòng 2 => a1
+thêm dòng 2 => a1
 nội dung dòng 2 (master)
