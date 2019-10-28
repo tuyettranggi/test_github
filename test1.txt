@@ -3,3 +3,5 @@ nội dung dòng 1
 thêm dòng 2 => a1
 thêm dòng 2 => a1
 nội dung dòng 2 (master)
+merge 2 commit của a1 lần 1
+merge 2 commit của a1 lần 2
