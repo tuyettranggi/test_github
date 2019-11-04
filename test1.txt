@@ -1,5 +1,6 @@
 Đây là file thứ nhất của master
 nội dung dòng 1 => sửa lại (a4)
+a4 - 2019/11/04 - 17:035
 thêm dòng 2 => a1
 thêm dòng 2 => a1
 nội dung dòng 2 (master)
