@@ -8,3 +8,4 @@ merge 2 commit của a1 lần 2
 master 1: test gộp nhiều commit sau khi rebase
 master 1: test gộp nhiều commit sau khi rebase (lần 2)
 master 3
+master - 2019/11/04 - 17:03
