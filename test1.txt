@@ -12,3 +12,4 @@ master 3
 master - 2019/11/04 - 17:03
 a4: 2019/11/05 - 8:14 - test fixup commit
 master - 2019/11/05 - 08:28
+a4 == 2019/11/05 - 08:39 == tạo pull request == thêm nội dung
