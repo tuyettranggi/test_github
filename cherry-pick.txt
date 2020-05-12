@@ -1,1 +1,4 @@
 Nội dung này từ nhánh a2, sẽ được căt sang nhánh cherry
+********** BEGIN
+Nội dung nhánh a3, sẽ được cherry-pick sang nhánh cherry
+********** END
