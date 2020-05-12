@@ -20,3 +20,4 @@ This is branch cherry
 =======
 a4 == 2019/11/05 - 08:39 == tạo pull request == thêm nội dung
 >>>>>>> 807705c... a4 - 2019/11/04 - 17:035 MERGE NEW 2
+Đây là nội dung mới của nhánh cherry
