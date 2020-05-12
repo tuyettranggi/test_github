@@ -12,12 +12,11 @@ master 3
 master - 2019/11/04 - 17:03
 a4: 2019/11/05 - 8:14 - test fixup commit
 master - 2019/11/05 - 08:28
-<<<<<<< HEAD
+
 a4 == 2019/11/05 - 08:39 == tạo pull request == thêm nội dung
 Noijoj dung master trước khi tạo lại nhánh nhanh_se_xoa_va_phuc_hoi
 cherry-pick
 This is branch cherry
-=======
-a4 == 2019/11/05 - 08:39 == tạo pull request == thêm nội dung
->>>>>>> 807705c... a4 - 2019/11/04 - 17:035 MERGE NEW 2
+
+Nội dung này từ nhánh a2, sẽ được căt sang nhánh cherry
 Đây là nội dung mới của nhánh cherry
