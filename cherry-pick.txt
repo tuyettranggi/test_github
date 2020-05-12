@@ -1,6 +1,9 @@
 Nội dung này từ nhánh a2, sẽ được căt sang nhánh cherry
+<<<<<<< HEAD
 ********** BEGIN
 Nội dung nhánh a3, sẽ được cherry-pick sang nhánh cherry
 ********** END
 
 test all tag
+=======
+>>>>>>> a2 - 2020/05/12 - 08:28 cherry
