@@ -15,3 +15,6 @@ master - 2019/11/05 - 08:28
 a4 == 2019/11/05 - 08:39 == tạo pull request == thêm nội dung
 Noijoj dung master trước khi tạo lại nhánh nhanh_se_xoa_va_phuc_hoi
 cherry-pick
+********** BEGIN
+Nội dung nhánh a3, sẽ được cherry-pick sang nhánh cherry
+********** END
