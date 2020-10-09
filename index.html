@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+		<base href="https://git-extensions-documentation.readthedocs.io/">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Merge Conflicts — GitExtensions 3.3 documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css">
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css">
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="shortcut icon" href="_static/git-extensions-logo.ico">
+    <link rel="index" title="Index" href="genindex.html">
+    <link rel="search" title="Search" href="search.html">
+    <link rel="next" title="Modify Git history" href="modify_history.html">
+    <link rel="prev" title="Remotes" href="remote_feature.html">
+
+<!-- RTD Extra Head -->
+
+<!--
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="https://git-extensions-documentation.readthedocs.io/en/latest/merge_conflicts.html">
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css">
+
+<script type="text/javascript" src="_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "merge_conflicts"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body cz-shortcut-listen="true">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="modify_history.html" title="Modify Git history" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="remote_feature.html" title="Remotes" accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GitExtensions 3.3 documentation</a> »</li>
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+
+  <div class="section" id="merge-conflicts">
+<span id="id1"></span><h1>Merge Conflicts<a class="headerlink" href="#merge-conflicts" title="Permalink to this headline">¶</a></h1>
+<p>When merging or rebasing branches or commits you can get conflicts. Git will try to resolve these, but some conflicts
+need to be resolved manually. Git Extensions will show warnings when there is a merge conflict in the status bar in the bottom right corner.</p>
+<img alt="_images/merge_conflicts.png" src="_images/merge_conflicts.png">
+<div class="section" id="handle-merge-conflicts">
+<h2>Handle merge conflicts<a class="headerlink" href="#handle-merge-conflicts" title="Permalink to this headline">¶</a></h2>
+<p>To solve merge conflicts just click on a warning or open the <code class="docutils literal notranslate"><span class="pre">Solve</span> <span class="pre">merge</span> <span class="pre">conflicts...</span></code> dialog from the Commands menu. A dialog will prompt
+showing all conflicts.</p>
+<img alt="_images/resolve_merge_conflicts.png" src="_images/resolve_merge_conflicts.png">
+<p>The context menu shows the actions to resolve the conflicts. Double-click on a filename will start the mergetool.</p>
+<img alt="_images/resolve_merge_conflicts_menu.png" src="_images/resolve_merge_conflicts_menu.png">
+<p>There are three kinds of conflicts:</p>
+<div class="wy-table-responsive"><table border="1" class="docutils">
+<colgroup>
+<col width="56%">
+<col width="44%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>File deleted and changed</td>
+<td>Use modified or deleted file?</td>
+</tr>
+<tr class="row-even"><td>File deleted and created</td>
+<td>Use created or deleted file?</td>
+</tr>
+<tr class="row-odd"><td>File changed both locally and remotely</td>
+<td>Start merge tool.</td>
+</tr>
+</tbody>
+</table></div>
+<p>If the file is deleted in one commit and changed in another commit, a dialog will ask to keep the modified file or delete
+the file. When there is a conflicting change the merge tool will be started. You can configure the tool you want to use for
+merge conflicts. The image below shows Perforce P4Merge, a merge tool free to use for small teams.</p>
+<p>In the merge tool you will see four versions of the same file:</p>
+<div class="wy-table-responsive"><table border="1" class="docutils">
+<colgroup>
+<col width="11%">
+<col width="89%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Base</td>
+<td>The latest version of the file that exist in both repositories</td>
+</tr>
+<tr class="row-even"><td>Local</td>
+<td>The latest local version of the file</td>
+</tr>
+<tr class="row-odd"><td>Remote</td>
+<td>The latest remote version of the file</td>
+</tr>
+<tr class="row-even"><td>Merged</td>
+<td>The result of the merge</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">When you are in the middle of a merge the file named local represents your file. When you are in the middle of a rebase the
+file named remote represents your file. This can be confusing, so double check if you are in doubt.</p>
+</div>
+<img alt="_images/perforce_p4merge.png" src="_images/perforce_p4merge.png">
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/git-extensions-logo-128px.png" alt="Logo">
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Merge Conflicts</a><ul>
+<li><a class="reference internal" href="#handle-merge-conflicts">Handle merge conflicts</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="remote_feature.html" title="previous chapter">Remotes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="modify_history.html" title="next chapter">Modify Git history</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/merge_conflicts.rst.txt" rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q">
+      <input type="submit" value="Go">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="modify_history.html" title="Modify Git history">next</a> |</li>
+        <li class="right">
+          <a href="remote_feature.html" title="Remotes">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GitExtensions 3.3 documentation</a> »</li>
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        © Copyright 2008-2019, GitExtensions.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+
+<div id="rtd-fixed-footer"></div><!-- Inserted RTD Footer -->
+
+<div class="injected">
+
+
+  <div class="rst-versions rst-badge" data-toggle="rst-versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book">&nbsp;</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+
+
+
+
+
+      <dl>
+        <dt>Các phiên ban</dt>
+
+
+        <dd><a href="https://git-extensions-documentation.readthedocs.io/en/master/merge_conflicts.html">master</a></dd>
+
+
+
+        <dd><a href="https://git-extensions-documentation.readthedocs.io/en/release-3.4/merge_conflicts.html">release-3.4</a></dd>
+
+
+
+        <dd><a href="https://git-extensions-documentation.readthedocs.io/en/release-3.3/merge_conflicts.html">release-3.3</a></dd>
+
+
+
+        <dd><a href="https://git-extensions-documentation.readthedocs.io/en/release-2.51/merge_conflicts.html">release-2.51</a></dd>
+
+
+      </dl>
+
+
+
+
+
+      <dl>
+        <dt>Downloads</dt>
+
+        <dd><a href="//git-extensions-documentation.readthedocs.io/_/downloads/en/latest/pdf/">PDF</a></dd>
+
+        <dd><a href="//git-extensions-documentation.readthedocs.io/_/downloads/en/latest/htmlzip/">HTML</a></dd>
+
+        <dd><a href="//git-extensions-documentation.readthedocs.io/_/downloads/en/latest/epub/">Epub</a></dd>
+
+      </dl>
+
+
+
+
+      <dl>
+
+        <!-- These are kept as relative links for internal installs that are http -->
+        <dt>On Read the Docs</dt>
+        <dd>
+          <a href="//readthedocs.org/projects/git-extensions-documentation/">Project Home</a>
+        </dd>
+        <dd>
+          <a href="//readthedocs.org/projects/git-extensions-documentation/builds/">Các phiên bản xây dựng</a>
+        </dd>
+        <dd>
+          <a href="//readthedocs.org/projects/git-extensions-documentation/downloads/">Downloads</a>
+        </dd>
+      </dl>
+
+
+
+
+
+      <dl>
+        <dt>On GitHub</dt>
+        <dd>
+          <a href="https://github.com/gitextensions/GitExtensionsDoc/blob/master/source/merge_conflicts.rst">View</a>
+        </dd>
+
+        <dd>
+          <a href="https://github.com/gitextensions/GitExtensionsDoc/edit/master/source/merge_conflicts.rst">Chỉnh sửa</a>
+        </dd>
+
+      </dl>
+
+
+
+
+      <dl>
+        <dt>Tìm kiếm</dt>
+        <dd>
+          <div style="padding: 6px;">
+
+            <form id="flyout-search-form" class="wy-form" target="_blank" action="//readthedocs.org/projects/git-extensions-documentation/search/" method="get">
+              <input type="text" name="q" placeholder="Search docs">
+              </form>
+          </div>
+        </dd>
+      </dl>
+
+
+
+
+
+      <hr>
+
+        <small>
+          <span>Hosted by <a href="https://readthedocs.org">Read the Docs</a></span>
+          <span> · </span>
+          <a href="https://docs.readthedocs.io/page/privacy-policy.html">Privacy Policy</a>
+        </small>
+
+
+
+    </div>
+  </div>
+
+
+</div>
+</body></html>
